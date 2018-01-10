@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register your account</h2>
+
+@using (Html.BeginForm())
+{
+    <div>@Html.Label("Login name")</div>
+    <div>@Html.TextBox("name")</div>
+    <br />
+    <div>@Html.Label("Password")</div>
+    <div>@Html.TextBox("password")</div>
+    <br />
+    <div>@Html.Label("Email")</div>
+    <div>@Html.TextBox("Email")</div>
+    <br />
+    <input type="submit" value="Register" />
+}
+
+ @Html.ValidationMessage("Error")
+ @if (!string.IsNullOrEmpty(ViewBag.message))
+ {
+    <h2 style="color:green;">@ViewBag.message</h2>
+    <br />
+    @Html.ActionLink("Press here to login!", "Login", "Login")
+ }
+
